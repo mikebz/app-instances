@@ -10,14 +10,14 @@ metadata:
 upstream:
   type: git
   git:
-    repo: https://github.com/platkrm/chris-app-blueprints
+    repo: 'https://github.com/platkrm/chris-app-blueprints'
     directory: /ghost2
     ref: main
   updateStrategy: resource-merge
 upstreamLock:
   type: git
   git:
-    repo: https://github.com/platkrm/chris-app-blueprints
+    repo: 'https://github.com/platkrm/chris-app-blueprints'
     directory: /ghost2
     ref: main
     commit: cb777c0219e5aed8628142888c84b64fcef2d39a
@@ -25,4 +25,5 @@ info:
   description: Sales ghost instance.
 pipeline:
   mutators:
-  - image: us-west1-docker.pkg.dev/cad-demo-327615/kpt-functions/set-namespace:latest
+  - image: >-
+      us-west1-docker.pkg.dev/cad-demo-327615/kpt-functions/set-namespace:latest
