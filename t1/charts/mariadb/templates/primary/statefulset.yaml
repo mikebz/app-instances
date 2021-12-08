@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata: # kpt-merge: example-ns/ghost-mariadb
   name: ghost-mariadb
-  namespace: example-ns
+  namespace: t1-dev
   labels:
     app.kubernetes.io/name: mariadb
     helm.sh/chart: mariadb-9.6.1

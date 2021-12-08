@@ -10,21 +10,22 @@ metadata:
 upstream:
   type: git
   git:
-    repo: https://github.com/mikebz/app-blueprints
+    repo: 'https://github.com/mikebz/app-blueprints'
     directory: /ghost2
     ref: main
   updateStrategy: resource-merge
 upstreamLock:
   type: git
   git:
-    repo: https://github.com/mikebz/app-blueprints
+    repo: 'https://github.com/mikebz/app-blueprints'
     directory: /ghost2
     ref: main
     commit: ec7490fdc8b12c65fb08e7b881b7ee946d227f4d
 info:
   description: description goes here!
+  keywords: []
 pipeline:
   mutators:
-  - image: gcr.io/kpt-fn/set-namespace:v0.1
+  - image: 'gcr.io/kpt-fn/set-namespace:v0.1'
     configMap:
-      namespace: example-ns
+      namespace: t1-dev

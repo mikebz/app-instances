@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Service
 metadata: # kpt-merge: example-ns/ghost
   name: ghost
-  namespace: example-ns
+  namespace: t1-dev
   labels:
     app.kubernetes.io/name: ghost
     helm.sh/chart: ghost-14.0.22
