@@ -1,0 +1,30 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata:
+  name: t1
+  annotations:
+    blueprints.cloud.google.com/title: 'title 1'
+    cft.dev/base-version: '1'
+    cft.dev/package-version: '3'
+    cft.dev/instance-version: '1'
+upstream:
+  type: git
+  git:
+    repo: https://github.com/mikebz/app-blueprints
+    directory: /ghost2
+    ref: main
+  updateStrategy: resource-merge
+upstreamLock:
+  type: git
+  git:
+    repo: https://github.com/mikebz/app-blueprints
+    directory: /ghost2
+    ref: main
+    commit: ec7490fdc8b12c65fb08e7b881b7ee946d227f4d
+info:
+  description: description goes here!
+pipeline:
+  mutators:
+  - image: gcr.io/kpt-fn/set-namespace:v0.1
+    configMap:
+      namespace: example-ns
