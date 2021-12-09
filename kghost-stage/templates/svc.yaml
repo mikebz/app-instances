@@ -3,13 +3,14 @@ apiVersion: v1
 kind: Service
 metadata: # kpt-merge: example-ns/ghost
   name: ghost
-  namespace: example-ns
+  namespace: cad-way
   labels:
     app.kubernetes.io/name: ghost
     helm.sh/chart: ghost-14.0.22
     app.kubernetes.io/instance: ghost
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: ghost
+    department: marketing
 spec:
   type: LoadBalancer
   externalTrafficPolicy: Cluster
@@ -22,3 +23,4 @@ spec:
     app.kubernetes.io/name: ghost
     app.kubernetes.io/instance: ghost
     app.kubernetes.io/component: ghost
+    department: marketing
