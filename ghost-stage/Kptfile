@@ -1,0 +1,31 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata:
+  name: ghost-stage
+  annotations:
+    blueprints.cloud.google.com/title: 'Ghost Stage'
+    cft.dev/base-version: '1'
+    cft.dev/package-version: '5'
+    cft.dev/instance-version: '1'
+upstream:
+  type: git
+  git:
+    repo: 'https://github.com/mikebz/app-blueprints'
+    directory: /ghost2
+    ref: main
+  updateStrategy: resource-merge
+upstreamLock:
+  type: git
+  git:
+    repo: 'https://github.com/mikebz/app-blueprints'
+    directory: /ghost2
+    ref: main
+    commit: 41f09fc348b0ee404b3ed3b317bfc2d332a1f0cb
+info:
+  description: stage description
+  keywords: []
+pipeline:
+  mutators:
+  - image: 'gcr.io/kpt-fn/set-namespace:v0.1'
+    configMap:
+      namespace: ghost-ns-stage
