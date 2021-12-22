@@ -5,8 +5,8 @@ metadata:
   annotations:
     blueprints.cloud.google.com/title: 'Ghost Culture'
     cft.dev/base-version: '1'
-    cft.dev/instance-version: '2'
-    cft.dev/package-version: '11'
+    cft.dev/instance-version: '3'
+    cft.dev/package-version: '12'
     internal.config.kubernetes.io/index: '0'
     internal.config.kubernetes.io/path: 'Kptfile'
 upstream:
@@ -14,22 +14,26 @@ upstream:
   git:
     repo: https://github.com/mikebz/app-blueprints
     directory: /ghost2
-    ref: v11
+    ref: v12
   updateStrategy: resource-merge
 upstreamLock:
   type: git
   git:
     repo: https://github.com/mikebz/app-blueprints
     directory: /ghost2
-    ref: ghost2/v11
-    commit: 121853106060f9ea833d9757ac5eb95e0de42fa1
+    ref: ghost2/v12
+    commit: 0b8112cd351f5e7cc9994acdf3456079f97f1729
 info:
   description: description goes here!
 pipeline:
   mutators:
   - image: gcr.io/kpt-fn/set-namespace:v0.1
     configMap:
-      namespace: ghost-ns-culture
+      namespace: ghost-ns
   - image: gcr.io/kpt-fn/set-labels:v0.1
     configMap:
-      department: hr
+      apptype: 3p
+  validators:
+  - image: us-central1-docker.pkg.dev/mikebz-ex1/mbzcr/check-labels:v0.1
+    configMap:
+      labels: apptype
