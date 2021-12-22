@@ -11,6 +11,7 @@ metadata: # kpt-merge: ghost-ns/ghost
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: ghost
     department: hr
+    apptype: todo
 spec:
   type: LoadBalancer
   externalTrafficPolicy: Cluster
@@ -24,3 +25,4 @@ spec:
     app.kubernetes.io/instance: ghost
     app.kubernetes.io/component: ghost
     department: hr
+    apptype: todo

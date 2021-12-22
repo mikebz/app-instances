@@ -11,6 +11,7 @@ metadata: # kpt-merge: ghost-ns/ghost-mariadb
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: primary
     department: hr
+    apptype: todo
 data:
   my.cnf: |-
     [mysqld]
