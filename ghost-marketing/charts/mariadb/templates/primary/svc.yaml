@@ -19,7 +19,6 @@ spec:
     port: 3306
     protocol: TCP
     targetPort: mysql
-    nodePort: null
   selector:
     app.kubernetes.io/name: mariadb
     app.kubernetes.io/instance: ghost
