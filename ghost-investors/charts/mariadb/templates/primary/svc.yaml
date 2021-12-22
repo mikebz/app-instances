@@ -11,6 +11,7 @@ metadata: # kpt-merge: ghost-ns/ghost-mariadb
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: primary
     department: finance
+    apptype: todo
 spec:
   type: ClusterIP
   ports:
@@ -18,9 +19,9 @@ spec:
     port: 3306
     protocol: TCP
     targetPort: mysql
-    nodePort: null
   selector:
     app.kubernetes.io/name: mariadb
     app.kubernetes.io/instance: ghost
     app.kubernetes.io/component: primary
     department: finance
+    apptype: todo

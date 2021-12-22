@@ -11,6 +11,7 @@ metadata: # kpt-merge: ghost-ns/ghost-mariadb
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: primary
     department: finance
+    apptype: todo
 spec:
   replicas: 1
   revisionHistoryLimit: 10
@@ -20,6 +21,7 @@ spec:
       app.kubernetes.io/instance: ghost
       app.kubernetes.io/component: primary
       department: finance
+      apptype: todo
   serviceName: ghost-mariadb
   updateStrategy:
     type: RollingUpdate
@@ -34,6 +36,7 @@ spec:
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/component: primary
         department: finance
+        apptype: todo
     spec:
       serviceAccountName: ghost-mariadb
       affinity:
@@ -45,18 +48,17 @@ spec:
                   app.kubernetes.io/name: mariadb
                   app.kubernetes.io/instance: ghost
                   app.kubernetes.io/component: primary
+                  apptype: todo
                   department: finance
               namespaces:
               - default
               topologyKey: kubernetes.io/hostname
             weight: 1
-        nodeAffinity: null
-        podAffinity: null
       securityContext:
         fsGroup: 1001
       containers:
       - name: mariadb
-        image: docker.io/bitnami/mariadb:10.5.12-debian-10-r32
+        image: docker.io/bitnami/mariadb:10.5.13-debian-10-r39
         imagePullPolicy: IfNotPresent
         securityContext:
           runAsUser: 1001
@@ -132,6 +134,7 @@ spec:
         app.kubernetes.io/name: mariadb
         app.kubernetes.io/instance: ghost
         app.kubernetes.io/component: primary
+        apptype: todo
         department: finance
     spec:
       accessModes:
