@@ -11,6 +11,7 @@ metadata: # kpt-merge: ghost-ns/ghost-mariadb
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: primary
     department: engineering
+    apptype: 3p
 spec:
   replicas: 1
   revisionHistoryLimit: 10
@@ -19,7 +20,7 @@ spec:
       app.kubernetes.io/name: mariadb
       app.kubernetes.io/instance: ghost
       app.kubernetes.io/component: primary
-      apptype: todo
+      apptype: 3p
       department: engineering
   serviceName: ghost-mariadb
   updateStrategy:
@@ -34,7 +35,7 @@ spec:
         app.kubernetes.io/instance: ghost
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/component: primary
-        apptype: todo
+        apptype: 3p
         department: engineering
     spec:
       serviceAccountName: ghost-mariadb
@@ -47,7 +48,7 @@ spec:
                   app.kubernetes.io/name: mariadb
                   app.kubernetes.io/instance: ghost
                   app.kubernetes.io/component: primary
-                  apptype: todo
+                  apptype: 3p
                   department: engineering
               namespaces:
               - default
@@ -133,7 +134,7 @@ spec:
         app.kubernetes.io/name: mariadb
         app.kubernetes.io/instance: ghost
         app.kubernetes.io/component: primary
-        apptype: todo
+        apptype: 3p
         department: engineering
     spec:
       accessModes:
