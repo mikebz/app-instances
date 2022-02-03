@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Service
 metadata: # kpt-merge: ghost-ns/ghost
   name: ghost
-  namespace: ghost-ns
+  namespace: ghost-ns-engineering
   labels:
     app.kubernetes.io/name: ghost
     helm.sh/chart: ghost-14.0.22
@@ -11,6 +11,7 @@ metadata: # kpt-merge: ghost-ns/ghost
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: ghost
     apptype: todo
+    department: engineering
 spec:
   type: LoadBalancer
   externalTrafficPolicy: Cluster
@@ -24,3 +25,4 @@ spec:
     app.kubernetes.io/instance: ghost
     app.kubernetes.io/component: ghost
     apptype: todo
+    department: engineering

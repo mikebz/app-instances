@@ -12,21 +12,25 @@ metadata:
 upstream:
   type: git
   git:
-    repo: https://github.com/mikebz/app-blueprints
+    repo: 'https://github.com/mikebz/app-blueprints'
     directory: /ghost2
     ref: main
   updateStrategy: resource-merge
 upstreamLock:
   type: git
   git:
-    repo: https://github.com/mikebz/app-blueprints
+    repo: 'https://github.com/mikebz/app-blueprints'
     directory: /ghost2
     ref: main
     commit: 70143bf9ccfffd703a1df19db82733a35c57d14b
 info:
   description: engineering blog based on ghost
+  keywords: []
 pipeline:
   mutators:
-  - image: gcr.io/kpt-fn/set-namespace:v0.1
+  - image: 'gcr.io/kpt-fn/set-namespace:v0.1'
     configMap:
-      namespace: ghost-ns
+      namespace: ghost-ns-engineering
+  - image: 'gcr.io/kpt-fn/set-labels:v0.1'
+    configMap:
+      department: engineering
