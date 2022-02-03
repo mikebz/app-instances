@@ -5,8 +5,8 @@ metadata:
   annotations:
     blueprints.cloud.google.com/title: 'Marketing Blog'
     cft.dev/base-version: '1'
-    cft.dev/instance-version: '3'
-    cft.dev/package-version: '15'
+    cft.dev/instance-version: '4'
+    cft.dev/package-version: '16'
     internal.config.kubernetes.io/index: '0'
     internal.config.kubernetes.io/path: 'Kptfile'
 upstream:
@@ -14,15 +14,15 @@ upstream:
   git:
     repo: https://github.com/mikebz/app-blueprints
     directory: /ghost2
-    ref: v15
+    ref: v16
   updateStrategy: resource-merge
 upstreamLock:
   type: git
   git:
     repo: https://github.com/mikebz/app-blueprints
     directory: /ghost2
-    ref: ghost2/v15
-    commit: 9b52056d5370920280cb478c338db6996551f7cf
+    ref: ghost2/v16
+    commit: c5f0724f36673187f2a4d7bb1e711479246504e6
 info:
   description: marketing blog based on ghost
 pipeline:
