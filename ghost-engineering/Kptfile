@@ -5,32 +5,31 @@ metadata:
   annotations:
     blueprints.cloud.google.com/title: 'Engineering Blog'
     cft.dev/base-version: '1'
-    cft.dev/package-version: '13'
+    cft.dev/instance-version: '3'
+    cft.dev/package-version: '14'
     internal.config.kubernetes.io/index: '0'
     internal.config.kubernetes.io/path: 'Kptfile'
-    cft.dev/instance-version: '2'
 upstream:
   type: git
   git:
-    repo: 'https://github.com/mikebz/app-blueprints'
+    repo: https://github.com/mikebz/app-blueprints
     directory: /ghost2
-    ref: main
+    ref: v14
   updateStrategy: resource-merge
 upstreamLock:
   type: git
   git:
-    repo: 'https://github.com/mikebz/app-blueprints'
+    repo: https://github.com/mikebz/app-blueprints
     directory: /ghost2
-    ref: main
-    commit: 70143bf9ccfffd703a1df19db82733a35c57d14b
+    ref: ghost2/v14
+    commit: 24e925e3a916b56097e8b67a6eafe02211ff7a10
 info:
   description: engineering blog based on ghost
-  keywords: []
 pipeline:
   mutators:
-  - image: 'gcr.io/kpt-fn/set-namespace:v0.1'
+  - image: gcr.io/kpt-fn/set-namespace:v0.1
     configMap:
       namespace: ghost-ns-engineering
-  - image: 'gcr.io/kpt-fn/set-labels:v0.1'
+  - image: gcr.io/kpt-fn/set-labels:v0.1
     configMap:
       department: engineering
