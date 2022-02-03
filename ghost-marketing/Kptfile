@@ -5,33 +5,36 @@ metadata:
   annotations:
     blueprints.cloud.google.com/title: 'Marketing Blog'
     cft.dev/base-version: '1'
-    cft.dev/instance-version: '5'
-    cft.dev/package-version: '16'
+    cft.dev/instance-version: '6'
+    cft.dev/package-version: '17'
     internal.config.kubernetes.io/index: '0'
     internal.config.kubernetes.io/path: 'Kptfile'
 upstream:
   type: git
   git:
-    repo: 'https://github.com/mikebz/app-blueprints'
+    repo: https://github.com/mikebz/app-blueprints
     directory: /ghost2
-    ref: v16
+    ref: v17
   updateStrategy: resource-merge
 upstreamLock:
   type: git
   git:
-    repo: 'https://github.com/mikebz/app-blueprints'
+    repo: https://github.com/mikebz/app-blueprints
     directory: /ghost2
-    ref: ghost2/v16
-    commit: c5f0724f36673187f2a4d7bb1e711479246504e6
+    ref: ghost2/v17
+    commit: acd71855d3cdcfe8c99c21eea60d5487a95e4b1d
 info:
   description: marketing blog based on ghost
-  keywords: []
 pipeline:
   mutators:
-  - image: 'gcr.io/kpt-fn/set-namespace:v0.1'
+  - image: gcr.io/kpt-fn/set-namespace:v0.1
     configMap:
       namespace: ghost-ns-marketing
-  - image: 'gcr.io/kpt-fn/set-labels:v0.1'
+  - image: gcr.io/kpt-fn/set-labels:v0.1
     configMap:
-      department: marketing
       apptype: 3p
+      department: marketing
+  validators:
+  - image: us-central1-docker.pkg.dev/mikebz-ex1/mbzcr/check-labels:v0.1
+    configMap:
+      labels: apptype
