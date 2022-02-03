@@ -8,7 +8,7 @@ metadata:
     cft.dev/package-version: '13'
     internal.config.kubernetes.io/index: '0'
     internal.config.kubernetes.io/path: 'Kptfile'
-    cft.dev/instance-version: '1'
+    cft.dev/instance-version: '2'
 upstream:
   type: git
   git:
