@@ -10,7 +10,6 @@ metadata: # kpt-merge: ghost-ns/ghost
     app.kubernetes.io/instance: ghost
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: ghost
-    apptype: todo
     department: engineering
 spec:
   type: LoadBalancer
