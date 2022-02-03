@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata: # kpt-merge: ghost-ns/ghost-mariadb
   name: ghost-mariadb
-  namespace: ghost-ns
+  namespace: ghost-ns-marketing
   labels:
     app.kubernetes.io/name: mariadb
     helm.sh/chart: mariadb-9.6.1
@@ -11,6 +11,7 @@ metadata: # kpt-merge: ghost-ns/ghost-mariadb
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: primary
     apptype: todo
+    department: marketing
 spec:
   replicas: 1
   revisionHistoryLimit: 10
@@ -20,6 +21,7 @@ spec:
       app.kubernetes.io/instance: ghost
       app.kubernetes.io/component: primary
       apptype: todo
+      department: marketing
   serviceName: ghost-mariadb
   updateStrategy:
     type: RollingUpdate
@@ -34,6 +36,7 @@ spec:
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/component: primary
         apptype: todo
+        department: marketing
     spec:
       serviceAccountName: ghost-mariadb
       affinity:
@@ -46,6 +49,7 @@ spec:
                   app.kubernetes.io/instance: ghost
                   app.kubernetes.io/component: primary
                   apptype: todo
+                  department: marketing
               namespaces:
               - default
               topologyKey: kubernetes.io/hostname
@@ -113,8 +117,12 @@ spec:
               fi
               mysqladmin status -uroot -p"${password_aux}"
         resources:
-          limits: {}
-          requests: {}
+          limits:
+            cpu: 500m
+            memory: 2Gi
+          requests:
+            cpu: 500m
+            memory: 2Gi
         volumeMounts:
         - name: data
           mountPath: /bitnami/mariadb
@@ -133,6 +141,7 @@ spec:
         app.kubernetes.io/instance: ghost
         app.kubernetes.io/component: primary
         apptype: todo
+        department: marketing
     spec:
       accessModes:
       - ReadWriteOnce

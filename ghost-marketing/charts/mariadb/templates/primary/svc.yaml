@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Service
 metadata: # kpt-merge: ghost-ns/ghost-mariadb
   name: ghost-mariadb
-  namespace: ghost-ns
+  namespace: ghost-ns-marketing
   labels:
     app.kubernetes.io/name: mariadb
     helm.sh/chart: mariadb-9.6.1
@@ -11,6 +11,7 @@ metadata: # kpt-merge: ghost-ns/ghost-mariadb
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: primary
     apptype: todo
+    department: marketing
 spec:
   type: ClusterIP
   ports:
@@ -24,3 +25,4 @@ spec:
     app.kubernetes.io/instance: ghost
     app.kubernetes.io/component: primary
     apptype: todo
+    department: marketing
