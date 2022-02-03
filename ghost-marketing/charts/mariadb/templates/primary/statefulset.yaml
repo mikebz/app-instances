@@ -54,8 +54,6 @@ spec:
               - default
               topologyKey: kubernetes.io/hostname
             weight: 1
-        nodeAffinity: null
-        podAffinity: null
       securityContext:
         fsGroup: 1001
       containers:

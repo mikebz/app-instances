@@ -5,32 +5,31 @@ metadata:
   annotations:
     blueprints.cloud.google.com/title: 'Marketing Blog'
     cft.dev/base-version: '1'
-    cft.dev/package-version: '13'
+    cft.dev/instance-version: '3'
+    cft.dev/package-version: '15'
     internal.config.kubernetes.io/index: '0'
     internal.config.kubernetes.io/path: 'Kptfile'
-    cft.dev/instance-version: '2'
 upstream:
   type: git
   git:
-    repo: 'https://github.com/mikebz/app-blueprints'
+    repo: https://github.com/mikebz/app-blueprints
     directory: /ghost2
-    ref: main
+    ref: v15
   updateStrategy: resource-merge
 upstreamLock:
   type: git
   git:
-    repo: 'https://github.com/mikebz/app-blueprints'
+    repo: https://github.com/mikebz/app-blueprints
     directory: /ghost2
-    ref: main
-    commit: 70143bf9ccfffd703a1df19db82733a35c57d14b
+    ref: ghost2/v15
+    commit: 9b52056d5370920280cb478c338db6996551f7cf
 info:
   description: marketing blog based on ghost
-  keywords: []
 pipeline:
   mutators:
-  - image: 'gcr.io/kpt-fn/set-namespace:v0.1'
+  - image: gcr.io/kpt-fn/set-namespace:v0.1
     configMap:
       namespace: ghost-ns-marketing
-  - image: 'gcr.io/kpt-fn/set-labels:v0.1'
+  - image: gcr.io/kpt-fn/set-labels:v0.1
     configMap:
       department: marketing
