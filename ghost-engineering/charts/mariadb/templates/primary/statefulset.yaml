@@ -57,7 +57,7 @@ spec:
         fsGroup: 1001
       containers:
       - name: mariadb
-        image: docker.io/bitnami/mariadb:10.5.12-debian-10-r32
+        image: docker.io/bitnami/mariadb:10.5.13-debian-10-r39
         imagePullPolicy: IfNotPresent
         securityContext:
           runAsUser: 1001
